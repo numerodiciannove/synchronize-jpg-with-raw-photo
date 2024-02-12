@@ -35,8 +35,10 @@ def synchronize_jpg_with_raw(jpg_directory, raw_directory, output_directory):
         for jpg_file in no_raw_version:
             file.write(jpg_file + "\n")
 
-    return no_raw_version
+    if no_raw_version:
+        return no_raw_version
+    else:
+        print("All files was copied")
 
 
 copied_raw_files = synchronize_jpg_with_raw(JPG_DIR, RAW_DIR, OUTPUT_DIR)
-print("Copied RAW files:", copied_raw_files)
