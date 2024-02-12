@@ -36,9 +36,11 @@ def synchronize_jpg_with_raw(jpg_directory, raw_directory, output_directory):
             file.write(jpg_file + "\n")
 
     if no_raw_version:
-        return no_raw_version
+        print("Some files not copied, check 'no_raw_version.txt'")
     else:
         print("All files was copied")
+
+    return no_raw_version
 
 
 copied_raw_files = synchronize_jpg_with_raw(JPG_DIR, RAW_DIR, OUTPUT_DIR)
