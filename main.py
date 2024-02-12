@@ -4,14 +4,14 @@ import shutil
 JPG_TYPE = ".jpg"
 JPG_DIR = r"C:\Users\numer\Desktop\test\jpg"
 
-RAW_TYPE = ".cr2"
+RAW_TYPE = ".NEF"
 RAW_DIR = r"C:\Users\numer\Desktop\test\raw"
 
 OUTPUT_DIR = r"C:\Users\numer\Desktop\test\sorted"
 
 
 def synchronize_jpg_with_raw(jpg_directory, raw_directory, output_directory):
-    copied = []
+    no_raw_version = []
     jpg_files = [f for f in os.listdir(jpg_directory) if
                  f.lower().endswith(JPG_TYPE)]
 
@@ -25,11 +25,17 @@ def synchronize_jpg_with_raw(jpg_directory, raw_directory, output_directory):
             shutil.copy(
                 os.path.join(raw_directory, raw_file), output_directory
             )
-            copied.append(raw_file)
         else:
             print(f"No RAW-version found for {jpg_file}.")
+            no_raw_version.append(jpg_file)
 
-    return copied
+    with open(
+            os.path.join(output_directory, "no_raw_version.txt"), "w"
+    ) as file:
+        for jpg_file in no_raw_version:
+            file.write(jpg_file + "\n")
+
+    return no_raw_version
 
 
 copied_raw_files = synchronize_jpg_with_raw(JPG_DIR, RAW_DIR, OUTPUT_DIR)
