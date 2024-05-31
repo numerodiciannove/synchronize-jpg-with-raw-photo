@@ -6,18 +6,30 @@ Welcome to the JPG and RAW Synchronizer project! This tool is designed to synchr
 
 Clone the repository to your local machine:
 
+```shell
 git clone https://github.com/yourusername/jpg-raw-synchronizer.git
+```
 
 ## Install the required dependencies. You can do this by running:
+```shell
 pip install tkinter
+```
 
 ## Usage:
 Navigate to the project directory:
+
+```shell
 cd jpg-raw-synchronizer
+```
+
 Run the main.py script:
 
 ## Run
+
+```shell
 python main.py
+```
+
 Input the paths to the directories containing JPG and RAW files, as well as the output directory where RAW files will be copied.
 
 Click the "Run" button to start the synchronization process.
